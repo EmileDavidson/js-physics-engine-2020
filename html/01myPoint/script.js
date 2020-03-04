@@ -8,9 +8,22 @@ canvas.width = width;
 canvas.height = height;
 
 // begin hier met jouw code voor deze opdracht
+let circles = [];
+let colors = ["Red", "Green", "Blue", "Orange", "Purple"];
 
-let myCircle = new Point(500,200,50,"yellow");
-myCircle.draw();
+CreateCircles();
+function CreateCircles() {
+    context.clearRect(0,0,width,height);
+    let mycircle = new Point(getRandomInt(0, width), getRandomInt(0,height),getRandomInt(20, 50), getRandomColor(), false)
+    circles.push(mycircle);
+    for(let i = 0; i < circles.length; i++){
+        circles[i].draw(context);
+    }
+}
+setInterval(CreateCircles, 100);
 
-let myOtherCircle = new Point(200,100,100,"blue")
-myOtherCircle.draw()
+function  getRandomColor() {
+    let number = getRandomInt(0, colors.length);
+    return colors[number];
+}
+
