@@ -9,7 +9,7 @@ canvas.height = height;
 
 // begin hier met jouw code voor deze opdracht
 let colors = ["Red", "Blue", "Green", "Orange", "Purple"];
-let mypolygon = new Polygon(getRandomInt(5, 30), GetRandomColor());
+let mypolygon = new Polygon(3, GetRandomColor());
 
 mypolygon.draw();
 
