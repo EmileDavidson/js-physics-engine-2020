@@ -14,10 +14,9 @@ let circles = [];
 let colors = ["Red", "Green", "Blue", "Orange", "Purple"];
 //Maakt alle circles aan en zet ze in een array
 CreateCircles();
-
 function CreateCircles() {
-  for (let i = 0; i < 10; i++) {
-    let circle = new Point(getRandomInt(0, width), getRandomInt(0, height), getRandomInt(30,50), GetRandomColor(), true);
+  for (let i = 0; i < 5; i++) {
+    let circle = new Point(new Vector2d(getRandomInt(0, width), getRandomInt(0,height)), getRandomInt(30,50), GetRandomColor(), i, true);
     circles.push(circle);
   }
 }
@@ -36,21 +35,6 @@ function DrawCircles(){
     circles[i].draw();
   }
 }
-
-
-
-function drawLinesBetweenPoints() {
-
-  context.beginPath();
-  context.lineWidth = 1;
-  for (let i = 0; i < circles.length; i++) {
-    context.lineTo(circles[i].x, circles[i].y);
-  }
-  context.closePath();
-  context.stroke();
-}
-
-
 //Simple functies for getting things.
 function GetRandomColor() {
   let number = getRandomInt(0, colors.length);
