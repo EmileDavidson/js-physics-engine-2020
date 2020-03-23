@@ -26,7 +26,6 @@ Update();
 function Update() {
   context.clearRect(0, 0, width, height);
   DrawCircles();
-  drawLinesBetweenPoints();
 }
 setInterval(Update, 10);
 
