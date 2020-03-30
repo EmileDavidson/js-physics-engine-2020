@@ -13,27 +13,27 @@ let circles = [];
 let lines = [];
 
 // maak de circles aan
-let a = new Point(300, 100, 20, "blue", true);
+let a = new Point(new Vector2d(300, 100), 20, "blue","", true);
 circles.push(a);
-let b = new Point(301,500, 20, "blue", true);
+let b = new Point(new Vector2d(301,500), 20, "blue","", true);
 circles.push(b);
-let c = new Point(50, 300, 20, "red", true);
+let c = new Point(new Vector2d(50, 300), 20, "red","", true);
 circles.push(c);
-let d = new Point(550, 300, 20, "red", true);
+let d = new Point(new Vector2d(550, 300), 20, "red","", true);
 circles.push(d);
-let e = new Point(100, 400, 20, "Purple", true);
+let e = new Point(new Vector2d(100, 400), 20, "Purple","", true);
 circles.push(e);
-let f = new Point(450, 400, 20, "Purple", true);
+let f = new Point(new Vector2d(450, 400), 20, "Purple","", true);
 circles.push(f);
 
 //maak de lines between circles aan
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < circles.length/2  ; i++) {
   let myline = new Linear(1, 1);
   lines.push(myline);
 }
 
 //interseption point
-let S = new Point(550, 300, 10, "GREEN", true);
+let s = new Point(new Vector2d(550, 300), 10, "GREEN","", true);
 
 Update();
 function Update() {
@@ -41,8 +41,8 @@ function Update() {
   //verander circle location wanneer ze worden gedragged
   for (let i = 0; i < circles.length; i++) {
     if (circles[i].drag == true) {
-      circles[i].x = mousePosX;
-      circles[i].y = mousePosY;
+      circles[i].pos.dx = mousePosX;
+      circles[i].pos.dy = mousePosY;
     }
   }
   //draw de circles
@@ -61,50 +61,16 @@ function Update() {
   lines[2].draw(context);
 
   //update de interception point en draw it again.
-  S.x = lines[0].intersection(lines[1]).x;
-  S.y = lines[0].intersection(lines[1]).y;
-  S.draw();
+  s.pos.dx = lines[0].intersection(lines[1]).x;
+  s.pos.dy = lines[0].intersection(lines[1]).y;
+  s.draw();
 
-  S.x = lines[0].intersection(lines[2]).x;
-  S.y = lines[0].intersection(lines[2]).y;
-  S.draw();
+  s.pos.dx = lines[0].intersection(lines[2]).x;
+  s.pos.dy = lines[0].intersection(lines[2]).y;
+  s.draw();
 
-  S.x = lines[1].intersection(lines[2]).x;
-  S.y = lines[1].intersection(lines[2]).y;
-  S.draw();
+  s.pos.dx = lines[1].intersection(lines[2]).x;
+  s.pos.dy = lines[1].intersection(lines[2]).y;
+  s.draw();
 }
 setInterval(Update, 10);
-
-
-//maak de public variable aan voor mouse possibilitie
-let mousePosX = 0;
-let mousePosY = 0;
-
-//onmouse move save the location of my mouse
-document.onmousemove = function(e) {
-  mousePosX = e.pageX;
-  mousePosY = e.pageY;
-};
-
-//on mouse down check if its on a circle an set it to draggable
-document.onmousedown = function(e) {
-  for (let i = 0; i < circles.length; i++) {
-    if (circles[i].draggable == true) {
-      if (e.pageY > circles[i].y - circles[i].radius && e.pageY < circles[i].y + circles[i].radius) {
-        if (e.pageX > circles[i].x - circles[i].radius && e.pageX < circles[i].x + circles[i].radius) {
-          circles[i].drag = true;
-          return;
-        }
-      }
-    }
-  }
-};
-
-//on mouse up check if there is a circle that gets dragged an set is back to false
-document.onmouseup = function(e) {
-  for (let i = 0; i < circles.length; i++) {
-    if (circles[i].drag == true) {
-      circles[i].drag = false;
-    }
-  }
-};
