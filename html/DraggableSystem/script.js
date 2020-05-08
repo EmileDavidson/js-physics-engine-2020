@@ -13,13 +13,12 @@ var mousePosY = 0;
 let circles = [];
 let colors = ["Red", "Green", "Blue", "Orange", "Purple"];
 //Maakt alle circles aan en zet ze in een array
-CreateCircles();
-function CreateCircles() {
-  for (let i = 0; i < 5; i++) {
-    let circle = new Point(new Vector2d(getRandomInt(0, width), getRandomInt(0,height)), getRandomInt(30,50), GetRandomColor(), i, true);
+    let circle = new Point(new Vector2d(getRandomInt(0, width), getRandomInt(0,height)), getRandomInt(30,50), "red", i, true);
     circles.push(circle);
-  }
-}
+    let circle1 = new Point(new Vector2d(getRandomInt(0, width), getRandomInt(0,height)), getRandomInt(30,50), "blue", i, true);
+    circles.push(circle1);
+    let circle2 = new Point(new Vector2d(getRandomInt(0, width), getRandomInt(0,height)), getRandomInt(30,50), T, "yellow", true);
+    circles.push(circle2);
 
 //update word elke 10 milli seconde uitgevoert en kijkt of er dingen moeten veranderen en drawed alles opnieuw.
 Update();
