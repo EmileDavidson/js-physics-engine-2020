@@ -13,7 +13,7 @@ let A, B, C, S;
 A = new Point(new Vector2d(100, 100), 20, "Magenta", "Ball1", true);
 B = new Point(new Vector2d(301, 500), 20, "blue", "Ball2", true);
 C = new Point(new Vector2d(50, 300), 20, "red", "Ball3", true);
-Z = new Point(new Vector2d(100, 100), 10, "green", "S", false);
+S = new Point(new Vector2d(100, 100), 10, "green", "S", false);
 //tussen circles
 let MAB, MBC, MCA;
 MAB = new Point(new Vector2d(100, 100), 5, "black", "MAB", false);
@@ -60,9 +60,10 @@ function animate() {
     C.draw();
 
     //zwaartepunt
-    Z.pos.dx = lAMBC.intersection(lBMCA).x;
-    Z.pos.dy = lAMBC.intersection(lBMCA).y;
-    Z.draw();
+    S.pos.dx = lAMBC.intersection(lBMCA).x;
+    S.pos.dy = lAMBC.intersection(lBMCA).y;
+    S.draw();
+
 }
 
 setInterval(animate, 2);
