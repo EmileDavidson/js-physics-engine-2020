@@ -20,11 +20,15 @@ let ab, bc, ca;
 ab = new Linear(1, 1);
 bc = new Linear(1,1);
 ca = new Linear(1,1);
-let altitudebc, altitudeca, altitudeab;
+let hA, hB, hC;
 hA = new Linear(1,1)
 hB = new Linear(1,1)
 hC = new Linear(1,1)
 
+let mAB, mBC, mCA;
+mAB = new Point(new Vector2d(0,0), 5, "orange", "AB", false);
+mBC = new Point(new Vector2d(0,0), 5, "orange", "BC", false);
+mCA = new Point(new Vector2d(0,0), 5, "orange", "CA", false);
 
 function animate() {
     context.clearRect(0, 0, width, height);
@@ -36,7 +40,7 @@ function animate() {
     ab.draw("black");
     bc.draw("black");
     ca.draw("black");
-    //draw intersection points
+    //Atlidute lines
     hA.slope = -1/bc.slope;
     hA.intercept = A.pos.dy - A.pos.dx*hA.slope;
     hA.draw("blue")
@@ -48,7 +52,18 @@ function animate() {
     hC.slope = -1/ab.slope;
     hC.intercept = C.pos.dy - C.pos.dx * hC.slope;
     hC.draw("blue");
+    //draw intersection points
+    mAB.pos.dx = ab.intersection(hC).x;
+    mAB.pos.dy = ab.intersection(hC).y;
+    mAB.draw();
 
+    mBC.pos.dx = bc.intersection(hA).x;
+    mBC.pos.dy = bc.intersection(hA).y;
+    mBC.draw();
+
+    mCA.pos.dx = ca.intersection(hB).x;
+    mCA.pos.dy = ca.intersection(hB).y;
+    mCA.draw();
     //draw circles
     A.draw();
     B.draw();
