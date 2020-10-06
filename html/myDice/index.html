@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>15 my dice</title>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+
+<table style="width:30%", border="borderd">
+    <tr id="numbers">
+        <td>Gegooit</td>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td>10</td>
+        <td>11</td>
+        <td>12</td>
+    </tr>
+    <tr id="times">
+        <td>AantalKeer gegooit</td>
+        <td id="Een">0</td>
+        <td id="Twee">0</td>
+        <td id="Drie">0</td>
+        <td id="Vier">0</td>
+        <td id="Vijf">0</td>
+        <td id="Zes">0</td>
+        <td id="Zeven">0</td>
+        <td id="Acht">0</td>
+        <td id="Negen">0</td>
+        <td id="Tien">0</td>
+        <td id="Elf">0</td>
+        <td id="Twaalf">0</td>
+    </tr>
+</table>
+<br>
+<h2>How many times do you wanna role</h2>
+<input type="number" name="numberOfRoles" id="numberOfRoles" value="1" min="1">
+<h2>How many dices do you wanna role (limited to screen width)</h2>
+<input type="number" name="numberOfDice" id="numberOfDice" value="3" min="1">
+<br>
+<canvas id="myChart" width="1000%" height="400"></canvas>
+<br><br><br><br>
+<h3>grafie</h3>
+<script src="script.js"></script>
+</body>
+</html>
