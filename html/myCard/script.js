@@ -16,16 +16,22 @@ numberOnARow = 13;
 numberOnAColumn = 5;
 
 index = Math.floor(Math.random()*52);
+let card = {};
+card.index = 1;
+card.position = 0;
 
+card.draw = ()=>{
+  x = (card.position%numberOnARow) * sw;
+  y = Math.floor(card.index/numberOnARow)*sh;
+
+  sx= (card.index%numberOnARow)*sw;
+  sy = Math.floor(card.position/numberOnARow)*sh;
+  context.drawImage(img,sx,sy,sw,sh, x,y,sw,sh);
+}
 
 img.addEventListener('load',()=>{
   sw = img.width/numberOnARow;
   sh = img.height/numberOnAColumn;
-  animate();
+  card.draw();
 })
 
-function animate(){
-  sx= (index%numberOnARow)*sw;
-  sy = Math.floor(index/numberOnARow)*sh
-  context.drawImage(img,sx,sy,sw,sh, 100,100,sw,sh)
-}
