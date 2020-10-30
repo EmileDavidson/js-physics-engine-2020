@@ -7,50 +7,48 @@ const height = window.innerHeight;
 canvas.width = width;
 canvas.height = height;
 
-let img_highres = new Image();
-img_highres.src = "map_highres.jpg";
-let img_lowres = new Image();
-img_lowres.src = "map_lowres.jpg";
-let scale;
+// begin hier met jouw code voor deze opdracht
 
-let mousePressed = false;
-let pointPressed = -1;
-let point = new Point(new Vector2d(50, 50), 10, "white", new Vector2d(50,50));
+let img_highres, img_lowres, scale,point,coordinate, scaleX, scaleY;
 
-this.addEventListener("mousedown", function(e) {
-  mousePressed=true;
-    if (point.testCollision(mouseX, mouseX, mouseY, mouseY)) {
-      pointPressed = 1;
-    }
-});
-this.addEventListener("mouseup", function(e) {
-  mousePressed = false;
-  pointPressed = -1;
-});
-this.addEventListener("mouseout", function(e) {
-  mousePressed = false;
-  pointPressed = -1;
-});
+img_lowres = new Image();
+img_lowres.src = "images/map_lowres.jpg";
+img_highres = new Image();
+img_highres.src = "images/map_highres.jpg";
 
-this.addEventListener('mousemove', function(e) {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-  if(mousePressed) {
-    point.Drag();
-  }
-});
+let mouseX = 0;
+let mouseY = 0;
+let radius = 100;
 
-img_lowres.addEventListener('load',()=>{
-  scale = img_highres.width / img_lowres.width;
-  setInterval(animate,10);
-})
+scale = img_highres.width / img_lowres.width;
 
-function animate() {
-  context.clearRect(0, 0, width, height);
-  context.drawImage(img_lowres, 0, 0);
+point = {};
+point.radius = 100;
+point.x = 0;
+point.y = 0;
 
-  point.draw(context);
-  context.fillRect(point.pos.dx - point.radius*5.5, point.pos.dy - point.radius*5.5, point.radius*11, point.radius*11);
-  console.log(scale);
-  context.drawImage(img_highres, (point.pos.dx-point.radius)*scale, (point.pos.dy-point.radius)*scale, 100, 100, point.pos.dx - point.radius*5, point.pos.dy - point.radius*5, point.radius*10, point.radius*10);
+coordinate = {};
+
+setInterval(animate,10)
+function animate(){
+  scaleX = img_highres.width/img_lowres.width;
+  scaleY = img_highres.height/img_lowres.width;
+
+  coordinate.x = point.x - radius;
+  coordinate.y = point.y - radius;
+
+  context.clearRect(0,0,width,height);
+  //drawImage(img,sx,sy,sw,sh,x,y,w,h)
+
+  context.drawImage(img_lowres,0,0);
+
+  //point.draw()
+  context.fillRect(point.x - (point.radius - 35),  point.y - (point.radius - 35), (point.radius - 35) * 2,(point.radius - 35) * 2);
+  context.drawImage(img_highres, point.x * scaleX, point.y * scaleY, point.radius/2, point.radius/2, point.x - point.radius/2, point.y - point.radius/2, point.radius, point.radius);
 }
+
+
+document.addEventListener("mousemove", function (e) {
+    point.x = e.pageX;
+    point.y = e.pageY;
+});

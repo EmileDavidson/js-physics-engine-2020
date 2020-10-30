@@ -21,12 +21,9 @@ function Update() {
       numbers[i] = Math.floor(Math.random() * 6) + 1;
       dice3 += numbers[i];
     }
-    console.log(numbers);
 
     for(let i = 0; i < numbers.length; i++){
-      // context.drawImage(dice, 0 + (numbers[i] * (dice.width/6) - (dice.width/6)) * i, 0, dice.width/6, dice.height, 50 * i, 50, 100 * i, 100)
       context.drawImage(dice, (numbers[i] * dice.width/6) - dice.width/6, 0, dice.width/6, dice.height, 10 + ( i * dice.width/6), 50, 100, 100);
-      // context.drawImage(dice, 0 + (numbers[i] * dice.width/6) - (dice.width/6)), 0, dice.width/6, dice.height, 50, 50, 100, 100);
     }
     diceRolls[dice3 - 1] += 1;
 
@@ -85,3 +82,8 @@ function resetTable(){
 }
 
 //char.js
+let dices = [];
+function getDicelist(){
+  index = numbers[i] = Math.floor(Math.random() * 6) + 1;
+  context.drawImage(dice, (2 * dice.width/6) - dice.width/6, 0, dice.width/6, dice.height, 10, 50, 100, 100);
+}
