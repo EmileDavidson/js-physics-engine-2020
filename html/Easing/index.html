@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>easings</title>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="navbarDiv">
+    <nav class="navbar navbar-inverse" style="margin-bottom: 0px;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a id="refreshButton" class="navbar-brand" href="#">easings</a>
+            </div>
+            <ul class="nav navbar-nav">
+
+                <!--ease in-->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">In<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li id="easeInSin" class="navbar-inverse navbar-nav"><a href="#">easeInSin</a></li>
+                        <li id="EaseInCubic" class="navbar-inverse navbar-nav"><a href="#">EaseInCubic</a></li>
+                        <li id="EaseInQuint" class="navbar-inverse navbar-nav"><a href="#">EaseInQuint</a></li>
+                        <li id="EaseIncirc" class="navbar-inverse navbar-nav"><a href="#">EaseIncirc</a></li>
+                        <li id="EaseInElastic" class="navbar-inverse navbar-nav"><a href="#">EaseInElastic</a></li>
+                        <li id="EaseInQuad" class="navbar-inverse navbar-nav"><a href="#">EaseInQuad</a></li>
+                        <li id="EaseInQuart" class="navbar-inverse navbar-nav"><a href="#">EaseInQuart</a></li>
+                        <li id="EaseInExpo" class="navbar-inverse navbar-nav"><a href="#">EaseInExpo</a></li>
+                        <li id="EaseInBack" class="navbar-inverse navbar-nav"><a href="#">EaseInBack</a></li>
+                        <li id="EaseInBounce" class="navbar-inverse navbar-nav"><a href="#">EaseInBounce</a></li>
+                    </ul>
+                </li>
+
+                <!--ease out-->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">Out<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li id="easeOutSin" class="navbar-inverse navbar-nav"><a href="#">easeOutSin</a></li>
+                        <li id="EaseOutCubic" class="navbar-inverse navbar-nav"><a href="#">EaseOutCubic</a></li>
+                        <li id="EaseOutQuint" class="navbar-inverse navbar-nav"><a href="#">EaseOutQuint</a></li>
+                        <li id="EaseOutcirc" class="navbar-inverse navbar-nav"><a href="#">EaseOutcirc</a></li>
+                        <li id="EaseOutElastic" class="navbar-inverse navbar-nav"><a href="#">EaseOutElastic</a></li>
+                        <li id="EaseOutQuad" class="navbar-inverse navbar-nav"><a href="#">EaseOutQuad</a></li>
+                        <li id="EaseOutQuart" class="navbar-inverse navbar-nav"><a href="#">EaseOutQuart</a></li>
+                        <li id="EaseOutExpo" class="navbar-inverse navbar-nav"><a href="#">EaseOutExpo</a></li>
+                        <li id="EaseOutBack" class="navbar-inverse navbar-nav"><a href="#">EaseOutBack</a></li>
+                        <li id="EaseOutBounce" class="navbar-inverse navbar-nav"><a href="#">EaseOutBounce</a></li>
+                    </ul>
+                </li>
+
+                <!--easeOutIn-->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">InOut<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li id="easeInOutSin" class="navbar-inverse navbar-nav"><a href="#">easeInOutSin</a></li>
+                        <li id="EaseInOutCubic" class="navbar-inverse navbar-nav"><a href="#">EaseInOutCubic</a></li>
+                        <li id="EaseInOutQuint" class="navbar-inverse navbar-nav"><a href="#">EaseInOutQuint</a></li>
+                        <li id="EaseInOutcirc" class="navbar-inverse navbar-nav"><a href="#">EaseInOutcirc</a></li>
+                        <li id="EaseInOutElastic" class="navbar-inverse navbar-nav"><a href="#">EaseInOutElastic</a></li>
+                        <li id="EaseInOutQuad" class="navbar-inverse navbar-nav"><a href="#">EaseInOutQuad</a></li>
+                        <li id="EaseInOutQuart" class="navbar-inverse navbar-nav"><a href="#">EaseInOutQuart</a></li>
+                        <li id="EaseInOutExpo" class="navbar-inverse navbar-nav"><a href="#">EaseInOutExpo</a></li>
+                        <li id="EaseInOutBack" class="navbar-inverse navbar-nav"><a href="#">EaseInOutBack</a></li>
+                        <li id="EaseInOutBounce" class="navbar-inverse navbar-nav"><a href="#">EaseInOutBounce</a></li>
+                    </ul>
+                </li>
+                <ul class="nav navbar-nav">
+                    <li id="movingCircle"><a href="#" id="movingCircleText">stop MovingCircle</a></li>
+                </ul>
+            </ul>
+        </div>
+    </nav>
+</div>
+<canvas id="canvas"></canvas>
+</body>
+
+<footer>
+    <script src="../../lib/Vector2d.js"></script>
+    <script src="../../lib/Point.js"></script>
+    <script src="../../lib/Leantween/Easing.js"></script>
+    <script src="scripts/Navbar.js"></script>
+    <script src="scripts/script.js"></script>
+</footer>
+</html>
+
+
+
+
+
